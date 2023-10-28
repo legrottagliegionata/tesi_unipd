@@ -116,22 +116,22 @@ So, you finally managed to get your setup working and you're ready to begin to w
 First of all, these are the only files you should care about:
 ```
 Thesis
-├── appendix/
+├── 3-appendix/
 │   ├── appendice-a.tex
 │   ├── bibliography.bib
 │   ├── bibliography.tex
 │   └── glossary-entries.tex
-├── chapters/
+├── 2-chapters/
 │   ├── concept.tex
 │   └── ...
-├── config/
+├── 0-config/
 │   ├── packages.tex
-│   ├── thesis-config.tex
+│   ├── thesis-0-config.tex
 │   └── variables.tex
-├── images/
+├── 4-images/
 │   ├── unipd-logo.png
 │   └── ...
-├── preface/
+├── 1-preface/
 │   ├── acknowledgements.tex
 │   ├── copyright.tex
 │   ├── dedication.tex
@@ -148,39 +148,39 @@ Yeah, well, not actually all of them. Let's break down their purpose down here
 <details>
 <summary>Read more</summary>
 
-- `config/`
+- `0-config/`
     - `variables.tex`: the first file you want to look into.
     It defines all the variables that will be used to automatically fill some contents of the document, such as the title, your name, your professor etc.
     It also fills the final PDF file metadata fields.
-    - `thesis-config.tex`: some custom commands definitions and package-specific configurations.
+    - `thesis-0-config.tex`: some custom commands definitions and package-specific configurations.
     If you feel adventurous enough you can tune them to your preferences, but the provided ones should be ok
     - `packages.tex`: should be pretty much self-explanatory.
     Just the declaration of all the packages used in the project.
     Nothing relevant to see here
-- `preface/`: all those pages you find before the actual chapters are gathered here:
+- `1-preface/`: all those pages you find before the actual 2-chapters are gathered here:
     - `summary.tex`: in here you briefly explain what the thesis is about.
     You shouldn't spend much effort on this, just look at what's already in there and adapt it to your experience
     - `acknowledgements.tex`: should be clear by itself. Just remember to thank your professor first
     - `dedication.tex`: contains a small dedication with famous quote
     - `title-page.tex`: declares the structure of the front page.
-    Everything is automatic and the various names, such as your name, you thesis title, your professor etc get filled from those variables you set in `config/variables.tex`.
+    Everything is automatic and the various names, such as your name, you thesis title, your professor etc get filled from those variables you set in `0-config/variables.tex`.
     If your thesis has a very long title you may need to slightly adjust some spacing, in order to keep a decent layout
     - `table-of-contents.tex`: generates the table of contents. Nothing to see here
     - `copyright.tex`: it's nothing special, just that blank page with copyright
-- `chapters/`: the real stuff is placed here.
+- `2-chapters/`: the real stuff is placed here.
 This is the directory you will spend most of your time in, writing the main content.
-You will already find some example chapters in there, which are meant to show you how to use the template and to give an example of the structure of a thesis. \
+You will already find some example 2-chapters in there, which are meant to show you how to use the template and to give an example of the structure of a thesis. \
 Use file names that reflect the content of the chapter, avoid calling them `chapter-03.tex`.
-When creating, deleting or editing chapters remember that you have to put them in `structure.tex` too
+When creating, deleting or editing 2-chapters remember that you have to put them in `structure.tex` too
 - `structure.tex`: this doesn't contain any actual content at all.
 It just sets down the structure of the document, importing other files in the right order.
-You may occasionally need to put some new chapters you will write, but apart from that there's not much to do here
+You may occasionally need to put some new 2-chapters you will write, but apart from that there's not much to do here
 - `thesis.tex`: the root file of your thesis. As you can read above it is the only file to compile, in order to get the final PDF. Nothing more to say
 - `printable-thesis.tex`: yet another root file.
 When compiled, this one produces a version that is more fit to be printed as an elegant sweet physical copy, than to be viewed on your favorite PDF reader.
-It provides asymmetrical margins, chapters openings on the right and no links highlighting
-- `images/`: where the template will look for images, when including one
-- `appendix/`: contains the last chapters, such as custom appendix chapters, bibliography and glossary
+It provides asymmetrical margins, 2-chapters openings on the right and no links highlighting
+- `4-images/`: where the template will look for 4-images, when including one
+- `3-appendix/`: contains the last 2-chapters, such as custom 3-appendix 2-chapters, bibliography and glossary
     - `bibliography.bib`: where you put actual bibliography content
     - `glossary-entries.tex:` where you put your glossary definitions, following the syntax of the example terms
     - `bibliography.tex`: the automatic structure of bibliography. No need to change anything here
@@ -192,4 +192,4 @@ It provides asymmetrical margins, chapters openings on the right and no links hi
 Remember not to unconditionally stick with this structure, as it's just an example.
 If you feel you don't need this chapter or that section, or you prefer a different order and organization of the content do as you want.
 
-Before really starting to write actual content you should take some time to think about the structure of your chapters, filling them with the (empty) sections you will then develop, as it should help later on, avoiding to constantly rewrite and reorder stuff.
+Before really starting to write actual content you should take some time to think about the structure of your 2-chapters, filling them with the (empty) sections you will then develop, as it should help later on, avoiding to constantly rewrite and reorder stuff.

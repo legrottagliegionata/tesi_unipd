@@ -16,7 +16,7 @@ I capitoli rispecchiano quali dovrebbero essere gli argomenti trattati
 nel corso della tesi, a voi la libertà di riorganizzarli come preferite.
 Come editor vi consiglio TeXnicCenter che permette di aprire il file
 .tcp (file progetto).
-Nel file tesi-config.tex trovate le configurazioni per ogni pacchetto
+Nel file tesi-0-config.tex trovate le configurazioni per ogni pacchetto
 utilizzato.
 Il file compile-tesi.bat permette di compilare la tesi in modo completo
 aggiornando sia bibliografia che glossario.
