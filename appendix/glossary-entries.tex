@@ -1,7 +1,11 @@
 % Acronyms
 \newacronym[description={\glslink{apig}{Application Program Interface}}]
     {api}{API}{Application Program Interface}
+\newacronym[description={\glslink{IoTg}{Internet of Things}}]
+    {IoT}{IoT}{Internet of Things}
 
+\newacronym[description={\glslink{ERPg}{Enterprise Resource Planning}}]
+    {ERP}{ERP}{Enterprise Resource Planning}
 \newacronym[description={\glslink{umlg}{Unified Modeling Language}}]
     {uml}{UML}{Unified Modeling Language}
 
@@ -11,8 +15,34 @@
 \newacronym[description={\glslink{MVVMg}{Model-View-ViewModel}}]
 {mvvm}{MVVM}{Model-View-ViewModel}
 
+\newacronym[description={\glslink{CPQg}{Configure Price Quote}}]
+{CPQ}{CPQ}{Configure Price & Quote}
+
 \newacronym[description={\glslink{frameworkg}{Framework}}]
 {JVM}{JVM}{Java Virtual Machine}
+
+\newacronym[description={\glslink{app}{App}}]
+{app}{App}{Applicazioni}
+
+%B2B
+\newacronym[description={\glslink{B2Bg}{Business to Business}}]
+{B2B}{B2B}{Business to Business}
+
+%CRM
+\newacronym[description={\glslink{CRMg}{Customer Relationship Management}}]
+{CRM}{CRM}{Customer Relationship Management}
+
+%PIM
+\newacronym[description={\glslink{PIMg}{Product Information Management}}]
+{PIM}{PIM}{Product Information Management}
+
+%SDGs
+\newacronym[description={\glslink{SDGs}{Sustainable Development Goals}}]
+{SDGs}{SDGs}{Sustainable Development Goals}
+
+%BCorp
+\newacronym[description={\glslink{BCorp}{Benefit Corporation}}]
+{BCorp}{BCorp}{Benefit Corporation}
 
 % Glossary entries
 \newglossaryentry{apig} {
@@ -37,7 +67,7 @@
 }
 
 \newglossaryentry{continuous_integrationg} {
-    name=continuous integration,
+    name=Continuous integration,
     text=continuous integration,
     sort=continuous integration,
     description={in ingegneria del software, l'integrazione continua (\textit{continuous integration}) è una pratica che si applica in contesti in cui lo sviluppo del software avviene attraverso un sistema di versionamento. Consiste nell'allineamento frequente dagli ambienti di lavoro degli sviluppatori verso l'ambiente condiviso, al fine di rilevare tempestivamente eventuali errori di integrazione}
@@ -56,7 +86,7 @@
 
 
 \newglossaryentry{frameworkg} {
-    name=framework,
+    name=Framework,
     text=framework,
     sort=framework,
     description={Un \textit{framework} è una struttura concettuale e tecnologica predefinita che fornisce un modello standard su cui gli sviluppatori possono costruire applicazioni. Include librerie di codice, strumenti e linee guida che facilitano lo sviluppo, consentendo agli sviluppatori di concentrarsi sulla logica specifica dell'applicazione piuttosto che su dettagli di basso livello. Un framework può anche promuovere le buone pratiche di programmazione e ridurre la probabilità di errori.}
@@ -67,4 +97,71 @@
   text=Neo4j,
   sort=Neo4j,
   description={Neo4j è un database orientato ai grafi, open source, sviluppato in Java da Neo Technology. Il database è implementato in Java e Scala.}
+}
+
+\newglossaryentry{Gradle}{
+  name=Gradle,
+  text=Gradle,
+  sort=Gradle,
+  description={Gradle è un sistema di automazione open source che gestisce le dipendenze e permette di automatizzare il processo di compilazione, testing, pubblicazione e deployment di un software.}
+}
+
+\newglossaryentry{Npm}{
+  name=Npm,
+  text=Npm,
+  sort=Npm,
+  description={Npm è un gestore di pacchetti per il linguaggio di programmazione JavaScript. È il gestore di pacchetti predefinito per l'ambiente di runtime JavaScript Node.js.}
+}
+
+\newglossaryentry{IoTg}{
+  name=\glslink{IoT}{IoT},
+  text=IoT,
+  sort=IoT,
+  description={L'Internet of Things (IoT) è un sistema di dispositivi interconnessi digitalmente, macchine, oggetti, animali o persone che sono forniti di identificatori univoci e la capacità di trasferire dati su una rete senza richiedere interazioni uomo-uomo o uomo-computer.}
+}
+
+\newglossaryentry{prototipo}{
+  name=Prototipo,
+  text=Prototipo,
+  sort=prototipo,
+  description={Un prototipo è un esemplare o un modello di un prodotto o di un sistema che viene realizzato prima del prodotto finale.}
+}
+% Enterprise Resource Planning
+\newglossaryentry{ERPg}{
+  name=\glslink{ERP}{ERP},
+  text=ERP,
+  sort=ERP,
+  description={Un sistema di pianificazione delle risorse aziendali (ERP) è un sistema di gestione che consente a un'organizzazione di utilizzare un sistema di applicazioni integrate per gestire l'attività aziendale e automatizzare molte funzioni back office relative alla tecnologia, ai servizi e ai processi umani.}
+}
+
+%B2B
+\newglossaryentry{B2Bg}{
+  name=B2B,
+  text=B2B,
+  sort=B2B,
+  description={Business-to-business (B2B) è un modello di business che si riferisce alle transazioni commerciali tra due aziende, come quelle tra un produttore e un grossista o tra un grossista e un dettagliante.}
+}
+
+%CRM
+\newglossaryentry{CRMg}{
+  name=\glslink{CRM}{CRM},
+  text=CRM,
+  sort=CRM,
+  description={Customer relationship management (CRM) è un approccio per gestire l'interazione di un'azienda con i clienti attuali e potenziali. Utilizza l'analisi dei dati sui clienti per migliorare le relazioni con i clienti, concentrarsi sulla customer retention e guidare le vendite.}
+}
+
+%PIM
+\newglossaryentry{PIMg}{
+  name=\glslink{PIM}{PIM},
+  text=PIM,
+  sort=PIM,
+  description={Un sistema di gestione delle informazioni sui prodotti (PIM) è un insieme di strumenti e processi che un'azienda utilizza per gestire le informazioni sui prodotti necessarie per vendere e distribuire i propri prodotti a un acquirente finale.}
+}
+
+%CPQ
+\newglossaryentry{CPQg}{
+  name=\glslink{CPQ}{CPQ},
+  text=CPQ,
+  sort=CPQ,
+  description={Configure Price Quote (CPQ) è un software che consente alle aziende di automatizzare alcuni dei processi più complessi e propensi agli errori nella vendita di prodotti e servizi.}
 }
