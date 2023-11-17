@@ -4,15 +4,15 @@
 In questo capitolo descrivo il progetto di \textit{stage}, e le motivazioni che mi hanno spinto a scegliere questo progetto.\\
 Ho scelto {\azienda} perchè è l'azienda per cui lavoro da più di 5 anni, e che mi ha dato la possibilità di crescere professionalmente.
 Ho scelto questo progetto perchè mi ha permesso di lavorare con tecnologie nuove, e di imparare nuovi linguaggi di programmazione.\\
-Lo \textit{stage} prevedeva lo sviluppo di un prototipo per il monitoraggio, la raccolta e l'analisi delle dipendenze software degli applicativi di {\azienda}.\\
+Lo \textit{stage} prevedeva lo sviluppo di un prototipo per il monitoraggio, la raccolta e l'analisi delle dipendenze \textit{software} degli applicativi di {\azienda}.\\
 Il nome del progetto è \textit{Dependency Analyzer} ed è stato scelto dai membri del team di cui ho fatto parte.\\
 \section{Lo \textit{stage} per \azienda}
 
 Gli \textit{stage} rappresentano un pilastro fondamentale nella strategia di {\azienda}, svolgendo molteplici funzioni cruciali. 
-Primo fra tutti, offrono l'opportunità di dedicarsi a progetti innovativi che, a causa di limitazioni di budget o di tempo, 
+Primo fra tutti, offrono l'opportunità di dedicarsi a progetti innovativi che, a causa di limitazioni di \textit{budget} o di tempo, 
 non troverebbero spazio nelle attività lavorative ordinarie. I \textit{team} di sviluppo di {\azienda} sono primariamente impegnati 
 nel mantenimento e nello sviluppo dei prodotti esistenti, lasciando poco margine per la ricerca e lo sviluppo di nuove idee. 
-Questo compito è affidato al \textit{team} di ricerca e sviluppo, che, nonostante la sua competenza, è spesso limitato dalla scarsità 
+Questo compito solitamente è affidato al \textit{team} di ricerca e sviluppo, che, nonostante la sua competenza, è spesso limitato dalla scarsità 
 di risorse umane per affrontare tutte le richieste innovative. In questo contesto, lo \textit{stage} diventa una soluzione efficace, 
 consentendo lo sviluppo di prototipi e la conduzione di ricerche senza gravare eccessivamente sulle risorse aziendali.
 
@@ -32,19 +32,19 @@ di confrontarsi con il mondo del lavoro e di valutare se l'attività svolta corr
 
 \section{La proposta di stage}
 
-Un obiettivo strategico futuro per {\azienda} consiste nella modularizzazione dei propri prodotti software. 
+Un obiettivo strategico futuro per {\azienda} consiste nella modularizzazione dei propri prodotti \textit{software}. 
 L'intento è quello di realizzare moduli che possano essere utilizzati in maniera autonoma e che, al contempo, 
 siano facilmente integrabili con altre soluzioni. Questa direzione strategica implica un significativo aumento
 del numero di progetti e delle interdipendenze tra essi, rendendo essenziale un'efficace gestione e monitoraggio di tali dipendenze.
 
 In risposta a questa esigenza, il dipartimento di Ricerca e Sviluppo di {\azienda} ha intrapreso l'iniziativa 
-di sviluppare un sistema avanzato per la raccolta, il monitoraggio e l'analisi delle dipendenze software. 
+di sviluppare un sistema avanzato per la raccolta, il monitoraggio e l'analisi delle dipendenze \textit{software}. 
 L'obiettivo è quello di garantire un controllo accurato sulle versioni delle dipendenze collegate alle diverse release dei prodotti, 
 contribuendo così a soddisfare i requisiti non funzionali in termini di sicurezza e affidabilità delle soluzioni offerte.
 
 Nell'ambito di questa iniziativa, la proposta di \textit{stage} ha riguardato lo sviluppo di un \textit{\gls{prototipo}} per tale strumento. 
 Il focus del progetto di \textit{stage} è stato lo sviluppo di un sistema in grado di raccogliere informazioni dettagliate sulle dipendenze 
-direttamente dai sistemi di build utilizzati per la compilazione dei prodotti, specificatamente \textit{\gls{Gradle}} e \textit{\gls{Npm}}. 
+direttamente dai sistemi di \textit{build} utilizzati per la compilazione dei prodotti, specificatamente \textit{\gls{Gradle}} e \textit{\gls{Npm}}. 
 Questo prototipo rappresenta un passo fondamentale verso l'implementazione di una soluzione completa per la gestione delle dipendenze.
 
 \subsubsection*{Il plugin \textit{Gradle}}
@@ -52,7 +52,7 @@ Il primo prodotto che l'azienda intendeva realizzare tramite lo \textit{stage} �
 analizzando l'albero delle dipendenze generato da \textit{Gradle}, e dei progetti \textit{npm} analizzandone il file \textit{package-lock.json} generato
 durante l'installazione dei pacchetti.
 Il plugin doveva poter essere pubblicato su un \textit{repository} interno aziendale, e doveva essere utilizzabile da tutti i progetti di {\azienda}.
-Per essere più flessibile, doveva poter essere possibile configurare il \textit{plugin}, specificando i nomi dei progetti \textit{npm} da analizzare
+Per essere più flessibile, doveva poter essere configurato specificando i nomi dei progetti \textit{npm} da analizzare
 ed i riferimenti al \textit{backend} per l'invio delle informazioni raccolte.\\
 
 \subsubsection*{Il backend}
@@ -142,13 +142,13 @@ Il secondo vincolo tecnologico è stato quello di utilizzare \textit{Gradle} per
 questo perchè quasi tutti i progetti di {\azienda} lo utilizzano come sistema di build.\\
 
 \subsubsection*{Gralde}
-  \textit{Gradle} è uno strumento di automazione della build \textit{open source} che si è guadagnato una notevole popolarità nel mondo 
+  \textit{Gradle} è uno strumento di automazione della \textit{build} \textit{open source} che si è guadagnato una notevole popolarità nel mondo 
 dello sviluppo \textit{software}, grazie alla sua flessibilità e potenza. Utilizzato principalmente per progetti \textit{Java}, 
 è anche ampiamente adottato per applicazioni scritte in altri linguaggi di programmazione come \textit{Kotlin}, \textit{C++}, e \textit{Python}. 
-La sua caratteristica principale è la capacità di supportare configurazioni di build altamente personalizzabili, 
+La sua caratteristica principale è la capacità di supportare configurazioni di \textit{build} altamente personalizzabili, 
 rendendolo adatto sia per piccoli progetti sia per grandi imprese con esigenze complesse.
 
-\textit{Gradle} si distingue per l'uso di un \textit{DSL} (\textit{Domain-Specific Language}) basato sui linguaggi di programmazione \textit{Groovy} o \textit{Kotlin},
+\textit{Gradle} si distingue per l'uso di un \gls{DSLg} basato sui linguaggi di programmazione \textit{Groovy} o \textit{Kotlin},
  che fornisce un modo intuitivo e dichiarativo di definire le \textit{build}. Questo approccio, combinato con la sua potente capacità di 
  gestione delle dipendenze e il suo modello di esecuzione incrementale, consente agli sviluppatori di costruire \textit{software} in modo più 
  efficiente e affidabile. Inoltre, \textit{Gradle} è noto per la sua velocità, superando spesso altri strumenti di \textit{build} come \textit{Maven} 
@@ -163,26 +163,26 @@ rendendolo adatto sia per piccoli progetti sia per grandi imprese con esigenze c
 
 Un altro aspetto fondamentale di \textit{Gradle} è la sua estensibilità. Gli sviluppatori possono estendere le funzionalità di \textit{Gradle} 
 scrivendo script personalizzati o integrando \textit{plugin} esistenti. Questa flessibilità lo rende uno strumento ideale per adattarsi a 
-flussi di lavoro specifici e requisiti di build unici. Gradle è anche il sistema di build ufficiale per \textit{Android}, ulteriormente 
+flussi di lavoro specifici e requisiti di \textit{build} unici. Gradle è anche il sistema di \textit{build} ufficiale per \textit{Android}, ulteriormente 
 consolidando la sua posizione come uno strumento chiave nello sviluppo di applicazioni moderne.
 
 \subsubsection*{\textit{Angular}}
 Un altro vincolo tecnologico è stato quello di utilizzare \textit{Angular} per lo sviluppo del \textit{frontend}, 
 questo perchè, come scritto precedentemente, è il \textit{framework} più utilizzato in azienda per lo sviluppo delle \textit{web-app}.\\
 
-\textit{Angular} è un framework \textit{front-end} \textit{open source} sviluppato e mantenuto da \textit{Google}. 
-È ampiamente riconosciuto per la sua capacità di creare applicazioni web dinamiche e reattive. 
-\textit{Angular} utilizza \textit{TypeScript}, una super-set di \textit{JavaScript}, che fornisce funzionalità di tipizzazione statica e 
+\textit{Angular} è un \textit{framework} \textit{front-end} \textit{open source} sviluppato e mantenuto da \textit{Google}. 
+È ampiamente riconosciuto per la sua capacità di creare applicazioni \textit{web} dinamiche e reattive. 
+\textit{Angular} utilizza \textit{TypeScript}, una \textit{super-set} di \textit{JavaScript}, che fornisce funzionalità di tipizzazione statica e 
 orientamento agli oggetti, migliorando la manutenibilità e la qualità del codice.
 
 Una delle caratteristiche distintive di \textit{Angular} è il suo approccio basato su componenti, che aiuta gli sviluppatori a 
-costruire applicazioni web complesse in modo più modulare e mantenibile. Ogni componente in \textit{Angular} è una combinazione di \textit{HTML}, 
+costruire applicazioni \textit{web} complesse in modo più modulare e mantenibile. Ogni componente in \textit{Angular} è una combinazione di \textit{HTML}, 
 \textit{CSS}, e \textit{TypeScript}, che gestisce una parte specifica dell'interfaccia utente. Questo approccio promuove la riusabilità 
 del codice e una migliore separazione delle preoccupazioni.
 
-\textit{Angular} è anche noto per il suo potente sistema di \textit{dependency injection}, che semplifica lo sviluppo e il testing fornendo un 
+\textit{Angular} è anche noto per il suo potente sistema di \textit{dependency injection}, che semplifica lo sviluppo e il \textit{testing} fornendo un 
 modo per iniettare dipendenze in classi in modo pulito e flessibile. Inoltre, \textit{Angular} offre un'ampia gamma di funzionalità integrate come il 
-routing, la gestione delle forme, e l'accesso HTTP, che accelerano lo sviluppo di applicazioni web.
+\textit{routing}, la gestione delle \textit{form}, e l'accesso HTTP, che accelerano lo sviluppo di applicazioni textit{web}.
 
 \begin{figure}[h] 
   \centering 
@@ -215,9 +215,10 @@ rendendo \textit{Neo4j} particolarmente potente per analisi di dati relazionali 
 \end{figure}
 
 \subsection*{ Vincoli di dominio}
-Il proddotto finale dovrà essere utilizzato, non solo dagli sviluppatori, ma anche dai \textit{project manager}, i \textit{team leader}, e i \textit{product owner} en
+Il proddotto finale dovrà essere utilizzato, non solo dagli sviluppatori, ma anche dai \textit{project manager}, i \textit{team leader}, e i \textit{product owner} ed
 i consulenti; Per questo è stato richiesto, come obiettivo desiderabile, di implementare l'autenticazione tramite \textit{LDAP} aziendale, 
 per permettere l'accesso a tutti i dipendenti di {\azienda}.\\
+L'\textit{LDAP} è un protocollo di rete che permette la gestione centralizzata delle autenticazioni e delle autorizzazioni.
 Questo è fondamentale per garantire la sicurezza dei dati, e per permettere l'accesso solo a chi ne ha i permessi, senza dover
 implementare un sistema di autenticazione ad hoc.\\
 
@@ -230,8 +231,8 @@ Lo stage per me rappresenta un'opportunità per imparare nuove tecnologie, e per
 e questa poteva essere l'occasione giusta. Dopo aver valutato i pro e i contro, ho deciso di rimanere in azienda, perchè siamo riusciti
 a trovare un progetto molto interessante e stimolante, che mi ha permesso di imparare nuove tecnologie, e di mettermi alla prova.\\
 
-Questo progetto avrebbe permesso di affrontare problemi riguardanti lo sviluppo software, problemi di gestione e organizzazione del lavoro ma 
-anche i problemi riguardanti i sistemi di build e di continuous integration, un argomento che mi ha sempre affascinato ma che non ho mai
+Questo progetto avrebbe permesso di affrontare problemi riguardanti lo sviluppo \textit{software}, problemi di gestione e organizzazione del lavoro ma 
+anche i problemi riguardanti i sistemi di \textit{build} e di \textit{continuous integration}, un argomento che mi ha sempre affascinato ma che non ho mai
 avuto modo di approfondire.\\
 
 \section{Pianificazione e interazioni con il tutor}
