@@ -1,4 +1,4 @@
-\chapter{Il progetto di stage}
+\chapter{Il progetto di \textit{stage}}
 \label{cap:ilprogettodistage}
 
 In questo capitolo descrivo il progetto di \textit{stage}, e le motivazioni che mi hanno spinto a scegliere questo progetto.\\
@@ -30,7 +30,7 @@ di nuove competenze e conoscenze. Questo periodo rappresenta un momento di verif
 di confrontarsi con il mondo del lavoro e di valutare se l'attività svolta corrisponde alle proprie aspettative e aspirazioni professionali future.
 
 
-\section{La proposta di stage}
+\section{La proposta di \textit{stage}}
 
 Un obiettivo strategico futuro per {\azienda} consiste nella modularizzazione dei propri prodotti \textit{software}. 
 L'intento è quello di realizzare moduli che possano essere utilizzati in maniera autonoma e che, al contempo, 
@@ -106,7 +106,7 @@ delle attività, e di poter cambiare gli obiettivi in corso d'opera, se necessar
     \hline O02&Analisi requisiti applicativi e tecnici e \textit{mockup} del \textit{front end}\\
     \hline O03&Identificazione del db a grafo più adeguato al progetto\\
     \hline O04&Implementazione della struttura di \textit{database}\\
-    \hline O05&Implementazione di un \textit{plugin gradle} per la raccolta delle informazioni\\
+    \hline O05&Implementazione di un \textit{plugin Gradle} per la raccolta delle informazioni\\
     \hline O06&Invocazione da \textit{jenkins}\\
     \hline O07&Implementazione dei servizi \textit{backend} per l'interrogazione del sistema\\
     \hline O08&Implementazione del \textit{front end} per rendere possibile l'interrogazione\\
@@ -141,7 +141,7 @@ ed è molto ben documentato.
 Il secondo vincolo tecnologico è stato quello di utilizzare \textit{Gradle} per il \textit{plugin} che raccoglie le informazioni sulle dipendenze,
 questo perchè quasi tutti i progetti di {\azienda} lo utilizzano come sistema di build.\\
 
-\subsubsection*{Gralde}
+\subsubsection*{Gradle}
   \textit{Gradle} è uno strumento di automazione della \textit{build} \textit{open source} che si è guadagnato una notevole popolarità nel mondo 
 dello sviluppo \textit{software}, grazie alla sua flessibilità e potenza. Utilizzato principalmente per progetti \textit{Java}, 
 è anche ampiamente adottato per applicazioni scritte in altri linguaggi di programmazione come \textit{Kotlin}, \textit{C++}, e \textit{Python}. 
@@ -156,8 +156,8 @@ rendendolo adatto sia per piccoli progetti sia per grandi imprese con esigenze c
 
  \begin{figure}[!h] 
   \centering 
-  \includegraphics[width=1\columnwidth]{gradle-vs-maven.jpeg} 
-  \caption{Comparazione tra \textit{Gradle} e \textit{Maven}. Fonte: https://gradle.org/maven-vs-gradle}
+  \includegraphics[width=1\columnwidth]{Gradle-vs-maven.jpeg} 
+  \caption{Comparazione tra \textit{Gradle} e \textit{Maven}. Fonte: https://Gradle.org/maven-vs-Gradle}
   \label{fig:gredle-vs-maven}
 \end{figure}
 
@@ -188,7 +188,7 @@ modo per iniettare dipendenze in classi in modo pulito e flessibile. Inoltre, \t
   \centering 
   \includegraphics[width=0.5\columnwidth]{feature-angular.png} 
   \caption{Caratteristiche di \textit{Angular}.}
-  \label{fig:workflow-stage}
+  \label{fig:feature-angular}
 \end{figure}
 
 Con il suo ecosistema ricco e una forte comunità di sviluppatori, \textit{Angular} è diventato uno dei \textit{framework} \textit{front-end} più popolari e 
@@ -224,16 +224,34 @@ implementare un sistema di autenticazione ad hoc.\\
 
 
 
-\section{La scelta dello stage}
-La scelta dello stage non è stata molto semplice. La scelta principale da fare era, se scegliere un progetto interno all'azienda, o 
-se momentaneamente abbandonare l'azienda per fare l'esperienza di stage in un'altra azienda.\\ 
-Lo stage per me rappresenta un'opportunità per imparare nuove tecnologie, e per mettermi alla prova in un ambiente lavorativo diverso 
-e questa poteva essere l'occasione giusta. Dopo aver valutato i pro e i contro, ho deciso di rimanere in azienda, perchè siamo riusciti
-a trovare un progetto molto interessante e stimolante, che mi ha permesso di imparare nuove tecnologie, e di mettermi alla prova.\\
+\section{La scelta dello \textit{stage}}
+La scelta dello \textit{stage} non è stata molto semplice. La decisione principale da prendere era, se scegliere un progetto interno all'azienda, o 
+se momentaneamente abbandonare l'azienda per fare l'esperienza di \textit{stage} in un'altra.\\ 
+All'inizio della mia carriera lavorativa, ho avuto l'opportunità di fare un'altro \textit{stage} di sei mesi e questo per me è stato di fondamentale
+importanza per la mia crescita professionale.\\ Mi ha permesso di imparare tantissime cose, e di mettermi alla prova in un ambiente lavorativo
+diverso da quello universitario.\\ 
+Lo \textit{stage} per me rappresenta un'opportunità per imparare nuove tecnologie, e questa volta, come per la precedente, poteva essere l'occasione giusta. 
+Dopo aver valutato i pro e i contro, ho deciso di rimanere in azienda, perchè siamo riusciti
+a trovare un progetto interessante e stimolante, che mi ha permesso di imparare nuove tecnologie, e di mettermi alla prova.\\
+\begin{figure}[!h] 
+  \centering 
+  \includegraphics[width=1\columnwidth]{pro-contro.png}
+  \caption{Pro e contro di fare lo \textit{stage} nell'azienda per cui lavoro.}
+  \label{fig:pro-contro}
+\end{figure}
 
-Questo progetto avrebbe permesso di affrontare problemi riguardanti lo sviluppo \textit{software}, problemi di gestione e organizzazione del lavoro ma 
+Questo progetto mi avrebbe permesso di affrontare problemi riguardanti lo sviluppo \textit{software}, problemi di gestione e organizzazione del lavoro ma 
 anche i problemi riguardanti i sistemi di \textit{build} e di \textit{continuous integration}, un argomento che mi ha sempre affascinato ma che non ho mai
 avuto modo di approfondire.\\
+Per questo progetto mi ero imposto degli obiettivi personali:
+\begin{enumerate}
+  \item Prendere dimestichezza con \textit{Gradle} ed i sistemi di build in generale;
+  \item Imparare a scrivere un plugin per Gradle. Questo mi servirà in un futuro prossimo, per auto configurare alcuni progetto personali;
+  \item Conoscere i \textit{database} a grafo, imparare ad utilizzarli e riuscire a comprendere quando è meglio utilizzarli rispetto ai \textit{database} relazionali;
+  \item Provare le ultime versioni di \textit{Angular} e delle librerie che solitamente uso per lo sviluppo delle \textit{web-app}; 
+      In questo modo potrò valutare se è il caso di aggiornare i progetti che ho sviluppato in passato, e se è il caso di utilizzarle per i progetti futuri;
+\end{enumerate}
+Successivamente farò un'analisi dei risultati ottenuti, e valuterò se gli obiettivi sono stati raggiunti.\\
 
 \section{Pianificazione e interazioni con il tutor}
 All'inizio dello \textit{stage} ho avuto un incontro con il tutor aziendale, per discutere del piano di lavoro, e per definire la modalità
