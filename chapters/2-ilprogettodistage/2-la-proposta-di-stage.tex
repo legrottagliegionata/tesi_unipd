@@ -1,0 +1,39 @@
+\section{La proposta di \stage}
+
+Un obiettivo strategico futuro per {\azienda} consiste nella modularizzazione dei propri prodotti \textit{software}. 
+L'intento è quello di realizzare moduli che possano essere utilizzati in maniera autonoma e che, al contempo, 
+siano facilmente integrabili con altre soluzioni. Questa direzione strategica implica un significativo aumento
+del numero di progetti e delle interdipendenze tra essi, rendendo essenziale un'efficace gestione e monitoraggio di tali dipendenze.
+
+In risposta a questa esigenza, il dipartimento di Ricerca e Sviluppo di {\azienda} ha intrapreso l'iniziativa 
+di sviluppare un sistema avanzato per la raccolta, il monitoraggio e l'analisi delle dipendenze \textit{software}. 
+L'obiettivo è quello di garantire un controllo accurato sulle versioni delle dipendenze collegate alle diverse release dei prodotti, 
+contribuendo così a soddisfare i requisiti non funzionali in termini di sicurezza e affidabilità delle soluzioni offerte.
+
+Nell'ambito di questa iniziativa, la proposta di \stage{} ha riguardato lo sviluppo di un \textit{\gls{prototipo}} per tale strumento. 
+Il focus del progetto di \stage{} è stato lo sviluppo di un sistema in grado di raccogliere informazioni dettagliate sulle dipendenze 
+direttamente dai sistemi di \textit{build} utilizzati per la compilazione dei prodotti, specificatamente \gls{Gradle} e \gls{Npm}. 
+Questo prototipo rappresenta un passo fondamentale verso l'implementazione di una soluzione completa per la gestione delle dipendenze.
+
+\subsubsection*{Il \textit{plugin} Gradle}
+Il primo prodotto che l'azienda intendeva realizzare tramite lo \stage{} è un \textit{plugin} per Gradle che raccoglie informazioni sulle dipendenze dei progetti java, 
+analizzando l'albero delle dipendenze generato da Gradle, e dei progetti npm analizzandone il file \textit{package-lock.json} generato
+durante l'installazione dei pacchetti.
+Il \textit{plugin} doveva poter essere pubblicato su un \textit{repository} interno aziendale, e doveva essere utilizzabile da tutti i progetti di {\azienda}.
+Per essere più flessibile, doveva poter essere configurato specificando i nomi dei progetti npm da analizzare
+ed i riferimenti al \textit{backend} per l'invio delle informazioni raccolte.\\
+
+\subsubsection*{Il \textit{backend}}
+Il secondo prodotto atteso era un \textit{backend} per il salvataggio e l'analisi delle informazioni raccolte. 
+Il \textit{backend} doveva esporre dei servizi \textit{REST} per l'interrogazione del sistema, e doveva essere sviluppato utilizzando
+il linguaggio di programmazione Java. Non è stato richiesto l'utilizzo di un \textit{framework} specifico, ma è stato lasciata
+la libertà di scegliere il \textit{framework} più adatto al progetto.\\
+Il \textit{plugin} dopo aver raccolto le informazioni
+le invia al \textit{backend} che,  dopo averle elaborate, le salva in un \textit{database} a grafo.
+Anche in questo caso è stato richieso un file di configurazione per specificare i riferimenti al \textit{database} a grafo, e le credenziali
+per l'autenticazione ai servizi \textit{REST}.\\
+
+\subsubsection*{Il \textit{frontend}}
+Infine, un'interfaccia grafica realizzata tramite una \textit{web-app} per la visualizzazione delle informazioni raccolte.
+Le specifiche per il \textit{frontend} erano molto generiche, ma per essere in linea con le tecnologie utilizzate in azienda,
+è stato richiesto di utilizzare il \textit{framework Angular} per lo sviluppo.\\
