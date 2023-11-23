@@ -5,7 +5,7 @@ La prima fase della progettazione architetturale è stata la progettazione delle
 Era molto importante progettare le strutture dati in modo da poterle utilizzare in modo efficiente e 
 veloce, in quanto il progetto si basa su di esse.\\
 L'obiettivo era quello di creare una struttura dati che permettesse di rappresentare un grafo di dipendenze tra i vari pacchetti di un progetto.\\
-Ogni nodo del grafo rappresenta un pacchetto, ed aveva bisogno di avere le seguenti informazioni:
+Ogni nodo del grafo rappresenta un pacchetto, ed aveva bisogno delle seguenti informazioni:
 \begin{itemize}
   \item \textbf{id}: identificativo univoco del nodo;
   \item \textbf{\textit{group}}: nome del gruppo del pacchetto;
@@ -15,7 +15,7 @@ Ogni nodo del grafo rappresenta un pacchetto, ed aveva bisogno di avere le segue
 \end{itemize}
 
 \noindent Ogni arco del grafo, come mostrato in figura \ref*{fig:esempio1-neo4j} rappresenta una dipendenza tra due pacchetti, 
-ed ha bisogno di avere le seguenti informazioni:
+ed ha bisogno delle seguenti informazioni:
 \begin{itemize}
   \item \textbf{id}: identificativo univoco dell'arco;
   \item \textbf{from}: identificativo del nodo di partenza;
@@ -33,9 +33,10 @@ ed ha bisogno di avere le seguenti informazioni:
 
 Prima di arrivare alla struttura finale, abbiamo fatto diverse prove, cercando di trovare la struttura più adatta alle nostre esigenze.\\
 La versione finale, come mostrato in figura \ref{fig:struttura-grafo} ha saputo soddisfare tutte le nostre esigenze.\\
-Da ogni nodo possono partire tre tipi di archi, ognuno con una funzione diversa; Il primo tipo di arco è quello che rappresenta 
-una dipendenza diretta tra due pacchetti, quindi ad esempio se il pacchetto \textbf{A 1.0} dipende dal pacchetto \textbf{B 1.0 }, 
-allora dal nodo A parte un arco, nella figura è rappresentato con una linea continua, che punta al nodo B.\\
+Da ogni nodo possono partire tre tipi di archi, ognuno con una funzione diversa.
+Il primo tipo di arco è quello che rappresenta 
+una dipendenza diretta tra due pacchetti, quindi ad esempio se il pacchetto \textbf{A 1.0} dipende dal pacchetto \textbf{B 1.0}, 
+allora dal nodo \textbf{A 1.0} parte un arco, nella figura è rappresentato con una linea continua, che punta al nodo \textbf{B 1.0}.\\
 Il secondo tipo di arco è quello che rappresenta una dipendenza transitiva tra due pacchetti, quindi ad esempio se il pacchetto
 \textbf{A 1.0} dipende dal pacchetto \textbf{C 1.0} e il pacchetto \textbf{C 1.0} dipende dal pacchetto \textbf{D 3.0},
 allora dal nodo A parte un arco, nella figura è rappresentato con una linea tratteggiata, che punta al nodo \textbf{D 3.0}.\\
@@ -45,7 +46,7 @@ quindi ad esempio se il pacchetto \textbf{A 1.0} dipende dal pacchetto \textbf{B
 allora dal nodo \textbf{B 1.0} parte un arco, nella figura è rappresentato con una linea tratteggiata, a tratto più piccolo, 
 che punta al nodo \textbf{D 3.0}.\\
 Questo ultimo tipo di arco l'abbiamo introdotto per poter gestire le dipendenze transitiva con versioni diverse, dato che al rilascio di un
-pacchetto finale da installare, la versione che verrà installata sarà quella più recente, quindi in questo caso la versione \textbf{D 3.0}.\\
+pacchetto finale da installare, la versione che verrà installata sarà quella più recente, in questo caso la versione \textbf{D 3.0}.\\
 
 \begin{figure}[!h] 
   \centering 
@@ -88,16 +89,17 @@ che contiene le informazioni necessarie per l'esecuzione del \textit{plugin} e p
   }
 \end{lstlisting}
 
-L'idea di base del \textit{plugin} è quella di creare un \textit{task} che avvii il task standard messo a disposizione da Gradle
-per la creazione del \textit{dependency tree}, ovvero \textit{dependencyInsight}, e con l'output di questo task,
+L'idea di base del \textit{plugin} è quella di creare un \textit{task} che avvii il \textit{task standard} messo a disposizione da Gradle
+per la creazione del \textit{dependency tree}, ovvero \textit{dependencyInsight}, e con l'\textit{output} di questo \textit{task},
 creare un grafo di dipendenze, che verrà inviato al \textit{server} per essere salvato.\\
 Per i proggetti Npm invece, il \textit{plugin} legge il file \textit{package-lock.json}. Questo file viene generato automaticamente
 da Npm e contiene tutte le informazioni necessarie per la creazione del grafo di dipendenze.\\
 Un prerequisito per il funzionamento del \textit{plugin} è che sia stato eseguito il comando \textbf{\textit{npm install}},
 in modo da avere tutte le dipendenze installate nella cartella \textit{node\_modules} e quindi avere il file \textit{package-lock.json}.
 
-Una volta raccolte tutte le informazioni necessario, effettuo una chiamata \textit{REST} di tipo \textit{PUT} al \textit{server},
+Una volta raccolte tutte le informazioni necessarie, effettuo una chiamata \textit{REST} di tipo \textit{PUT} al \textit{server},
 per salvare il grafo di dipendenze.\\
+
 \subsection*{Progettazione \textit{backend}}
 Il progetto del \textit{backend}, denominato \textbf{smi-dependency-store}, l'ho suddiviso in quattro \textit{package} principali:
 \begin{itemize}
@@ -138,8 +140,7 @@ Per la configurazione del \textit{server}, ho previsto quattro diversi file di c
     \end{lstlisting}
   \item \textbf{logger.yml}: contiene le informazioni per la configurazione del \textit{logger}, come il livello di log, il formato del \textit{log} e il file di output. Vedi snippet \ref*{lst:logger-config}.
     Questa configurazione viene passata ad una libreria sviluppata da \azienda{}, che è un \textit{wrapper} della libreria \textit{slf4j}, nota libreria per la gestione dei \textit{log} in Java.
-    Il campo \textit{params} contiene le informazioni per la configurazione del livello di \textit{log} per ogni \textit{package} del \textit{server}. 
-    Questo mi permette di avere un livello di \textit{log} diverso per ogni \textit{package} del \textit{server}, molto utile per il \textit{debug}.
+    Il campo \textit{params} contiene le informazioni per la configurazione del livello di \textit{log} per ogni \textit{package} del \textit{server}, molto utile per la fase di \textit{debug}.
     \begin{lstlisting}[caption={Esempio di configurazione del \textit{logger.yml}.},captionpos=b, label={lst:logger-config}]
 defaultLogLevel: "info"
 showDateTime: true
@@ -195,7 +196,7 @@ il \textbf{SingletonHolder} restituirà automaticamente un'istanza di \textbf{Pa
 
 \subsection*{Progettazione \textit{frontend}}
 
-Per la progettazione del \textit{frontend} siamo dal \textit{mockup} grafico realizzato in fase di analisi.
+Per la progettazione del \textit{frontend} ho seguito il \textit{mockup} grafico realizzato in fase di analisi.\\
 Questo ci ha permesso di avere una visione chiara e dettagliata dell'interfaccia grafica, 
 semplificando notevolmente la fase di sviluppo.\\
 Il \textit{mockup} è stato realizzato utilizzando il \textit{tool} gratuito \textit{online} \textit{excalidraw}, che permette di creare grafiche semplici
@@ -208,10 +209,10 @@ come quella mostrata in figura \ref*{fig:mockup}.\\
 \end{figure}
 
 Da qui ho iniziato a sviluppare il \textit{frontend}, utilizzando il \textit{framework} Angular.\\
-Per prima cosa creato le due cartelle principali del progetto, la prima ,\textbf{commons}, contiene i componenti, i servizi e i modelli che possono 
+Per prima cosa creato le due cartelle principali del progetto, la prima, \textbf{commons}, contiene i componenti, i servizi e i modelli che possono 
 essere utilizzati in più componenti;
 la seconda, \textbf{features}, contiene a sua volta una cartella per ogni funzionalità del \textit{frontend}.
-Ho creato quindi le cartelle \textit{home}, \textit{login}, \textit{query} e \textit{find-by-project}. 
+Ho creato quindi le cartelle \textbf{home}, \textbf{login}, \textbf{query} e \textbf{find-by-project}. 
   Ogni cartella al suo interno contiene i componenti, i servizi e i modelli relativi alla funzionalità. 
   Nella figura \ref*{fig:frontend-structure} è possibile vedere la struttura del progetto.
   \begin{figure}[!h] 
@@ -227,7 +228,7 @@ Come mostrato in figura \ref*{fig:frontend-1}, l'interfaccia grafica è formata 
 il pulsante per il \textit{logout} ed i pulsanti per cambiare la lingua dell'interfaccia grafica.\\
 Sotto la barra di navigazione è presente una \textit{sidebar}, che contiene i pulsanti per accedere alle varie funzionalità del \textit{frontend} 
 ed il contenitore principale che mostra il contenuto della funzionalità selezionata.\\
-\begin{figure}[h]
+\begin{figure}[!h]
   \centering
   \begin{minipage}{0.45\textwidth}
       \centering
@@ -248,9 +249,9 @@ Le voci di menu presenti nella \textit{sidebar}, oltre alla funzionalità \texti
    è possibile inserire il nome completo, formato da \textit{group}, \textit{name} e \textit{version}, di un pacchetto e visualizzare
     le informazioni relative a quel pacchetto.\\
     Tuttavia per rendere più semplice la ricerca, ho aggiunto una funzionalità di suggerimento, che mostra la lista di pacchetti conosciuti dal 
-    \textit{server}, che iniziano con la stringa inserita nella barra di ricerca e raggruppati per \textit{group}, come rappresentato in figura \ref*{fig:frontend-2}.\\
-    Sotto alla casella di testo sono presenti tre \textit{checkbox}, che permette di scegliere se includere i pacchetti targati come \textit{dev}, 
-    se invcudere i pacchetti utilizzati solo durante la compilazione dei progetti o se includere tutti i pacchetti utilizzati a runtime
+    \textit{server}, che iniziano con la stringa inserita nella barra di ricerca, mostrandoli raggruppati per \textit{group}, come rappresentato in figura \ref*{fig:frontend-2}.\\
+    Sotto la casella di testo sono presenti tre \textit{checkbox}, che permette di scegliere se includere i pacchetti targati come \textit{dev}, 
+    se includere i pacchetti utilizzati solo durante la compilazione dei progetti e se includere tutti i pacchetti utilizzati a runtime
     da un progetto.\\
     Una volta avviata la ricerca, viene mostrato il risultato sotto di esso, come mostrato in figura \ref*{fig:frontend-3}.\\
     Qui troviamo tre possibili visualizzazioni del risultato: a grafo, ad albero e a lista.\\
@@ -258,7 +259,7 @@ Le voci di menu presenti nella \textit{sidebar}, oltre alla funzionalità \texti
     Questa visualizzazione può tornare utile quando si vuole avere una visione d'insieme di tutti i pacchetti utilizzati da un progetto.\\
     Nella visualizzazione ad albero invece, abbiamo una visualizzazione gerarchica dei pacchetti, dove ogni nodo rappresenta un pacchetto ed espanendo un nodo
     è possibile vedere i pacchetti da cui dipende.\\
-    In questo modo riusciamo a capire a come mai un pacchetto è stato incluso nel progetto, e quali altri pacchetti sono stati inclusi a causa di esso.\\
+    In questo modo riusciamo a capire come mai un pacchetto è stato incluso nel progetto, e quali altri pacchetti sono stati inclusi a causa di esso.\\
     Nella visualizzazione a grafo invece, abbiamo una visualizzazione grafica dei pacchetti, dove ogni nodo rappresenta un pacchetto e gli archi rappresentano
     le dipendenze tra i pacchetti.\\
     \begin{figure}[h]
@@ -276,7 +277,7 @@ Le voci di menu presenti nella \textit{sidebar}, oltre alla funzionalità \texti
           \label{fig:frontend-4}
       \end{minipage}
     \end{figure}
-    Inoltre, in visualizzazione è possibile fare un controllo sulla presenza di aggiornamenti e vulnerabilità, ad esempio, come mostrato in figura \ref*{fig:frontend-8},
+    Inoltre, è possibile fare un controllo sulla presenza di aggiornamenti e vulnerabilità, ad esempio, come mostrato in figura \ref*{fig:frontend-8},
     vengono mostrati tutti i pacchetti che hanno una versione più recente di quella utilizzata dal progetto.\\
     \begin{figure}[!h] 
       \centering
