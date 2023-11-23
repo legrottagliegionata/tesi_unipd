@@ -4,7 +4,7 @@
 La prima fase della progettazione architetturale è stata la progettazione delle strutture dati. 
 Era molto importante progettare le strutture dati in modo da poterle utilizzare in modo efficiente e 
 veloce, in quanto il progetto si basa su di esse.\\
-L'obiettivo era quello di creare una struttura dati che permettesse di rappresentare un grafo di dipendenze tra i vari pacchetti di un progetto.\\
+L'obiettivo era quello di creare una struttura dati che permettesse di rappresentare un grafo di dipendenze tra i vari pacchetti di un progetto.
 Ogni nodo del grafo rappresenta un pacchetto, ed aveva bisogno delle seguenti informazioni:
 \begin{itemize}
   \item \textbf{id}: identificativo univoco del nodo;
@@ -31,7 +31,7 @@ ed ha bisogno delle seguenti informazioni:
   \label{fig:esempio1-neo4j}
 \end{figure}
 
-Prima di arrivare alla struttura finale, abbiamo fatto diverse prove, cercando di trovare la struttura più adatta alle nostre esigenze.\\
+Prima di arrivare alla struttura finale, abbiamo fatto diverse prove, cercando di trovare la struttura più adatta alle nostre esigenze.
 La versione finale, come mostrato in figura \ref{fig:struttura-grafo} ha saputo soddisfare tutte le nostre esigenze.\\
 Da ogni nodo possono partire tre tipi di archi, ognuno con una funzione diversa.
 Il primo tipo di arco è quello che rappresenta 
@@ -93,13 +93,12 @@ L'idea di base del \textit{plugin} è quella di creare un \textit{task} che avvi
 per la creazione del \textit{dependency tree}, ovvero \textit{dependencyInsight}, e con l'\textit{output} di questo \textit{task},
 creare un grafo di dipendenze, che verrà inviato al \textit{server} per essere salvato.\\
 Per i proggetti Npm invece, il \textit{plugin} legge il file \textit{package-lock.json}. Questo file viene generato automaticamente
-da Npm e contiene tutte le informazioni necessarie per la creazione del grafo di dipendenze.\\
+da Npm e contiene tutte le informazioni necessarie per la creazione del grafo di dipendenze.
 Un prerequisito per il funzionamento del \textit{plugin} è che sia stato eseguito il comando \textbf{\textit{npm install}},
 in modo da avere tutte le dipendenze installate nella cartella \textit{node\_modules} e quindi avere il file \textit{package-lock.json}.
 
 Una volta raccolte tutte le informazioni necessarie, effettuo una chiamata \textit{REST} di tipo \textit{PUT} al \textit{server},
 per salvare il grafo di dipendenze.\\
-
 \subsection*{Progettazione \textit{backend}}
 Il progetto del \textit{backend}, denominato \textbf{smi-dependency-store}, l'ho suddiviso in quattro \textit{package} principali:
 \begin{itemize}
@@ -175,6 +174,7 @@ La classe \textbf{SingletonHolder} non solo gestisce la creazione dell'istanza, 
 di \textbf{PackageNodeDao}. Se si desidera modificare i metodi di questa classe, è possibile definire una sottoclasse di \textbf{PackageNodeDao}, 
 nominata \textbf{PackageNodeDaoPers}. In questo caso, grazie all'uso della \gls{reflection} di Java, 
 il \textbf{SingletonHolder} restituirà automaticamente un'istanza di \textbf{PackageNodeDaoPers}, permettendo una personalizzazione avanzata.
+\newpage
 
 
 \begin{lstlisting}[
