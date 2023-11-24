@@ -4,7 +4,7 @@
 \subsubsection*{Jersey}
 Per la creazione servizi \textit{REST}, ho utilizzato Jersey, che tramite annotazioni su metodi e classi, 
 mi ha permesso di creare facilmente i vari servizi.
-Lo \snippet{}  \ref*{lst:rest-service} mostra un esempio di \textit{servizio REST} che restituisce tutte le dipendenze di un pacchetto.\\
+Il frammento di codice \ref*{lst:rest-service} mostra un esempio di \textit{servizio REST} che restituisce tutte le dipendenze di un pacchetto.\\
 \begin{lstlisting}[language=Java, caption={Esempio di \textit{servizio REST} utilizzando Jersey.},captionpos=b, label={lst:rest-service}]
   @GET ()
   @Path ("dependency/byPackage/{id}")
@@ -69,7 +69,7 @@ Le clausole \texttt{CREATE} e \texttt{MERGE} sono utilizzate per aggiungere nodi
 Queste caratteristiche rendono Cypher un linguaggio potente e flessibile per lavorare con i dati in Neo4j, 
 facilitando la rappresentazione e l'analisi di relazioni complesse in un formato di grafo.\\
 
-Con la query mostrata nelli \snippet{} \ref*{fig:query-cipher} carico tutti i nodi che hanno una collegamento di tipo \textbf{D} o \textbf{R} con il nodo di partenza,
+Con la query mostrata nel frammento di codice \ref*{fig:query-cipher} carico tutti i nodi che hanno una collegamento di tipo \textbf{D} o \textbf{R} con il nodo di partenza,
 e per ogni nodo carico tutti i nodi collegati ad esso.\\
 Questa \textit{query} viene utilzzata per caricare in modo \textit{lazy} l'albero delle dipendenze, ovvero carico solo i nodi che sono direttamente collegati al nodo di partenza,
 e calcolo il numero di figli per ogni nodo.\\ In questo modo posso mostrare un \textit{badge} su ogni nodo con il numero di figli, e posso caricare i figli solo quando l'utente espande il nodo, 
@@ -105,9 +105,6 @@ l'ultima versione disponibile.\\
 
 Questa chiamata viene effettuata per ogni dipendenza del progetto selezionato, e viene confrontata con la versione utilizzata nel progetto.\\
 In caso di aggiornamento, viene stampato un messaggio di avviso, come mostrato nella figura \ref{fig:frontend-8}.\\
-
-Per i prossimi sviluppi del progetto, è previsto l'inserimento di questa informazione direttamente nella riga della tabella 
-che stiamo visualizzando, in modo da poter identificare in modo più semplice le dipendenze che hanno bisogno di un aggiornamento.\\
 
 Per la ricerca di vulnerabilità, ho utilizzato il servizio \textbf{OWASP Dependency-Check}, che permette di verificare se una dipendenza
 ha delle vulnerabilità.\\

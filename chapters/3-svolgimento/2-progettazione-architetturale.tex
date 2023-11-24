@@ -14,7 +14,7 @@ Ogni nodo del grafo rappresenta un pacchetto, ed aveva bisogno delle seguenti in
   \item \textbf{tipo}: tipo del pacchetto, può essere Java o JavaScript;
 \end{itemize}
 
-\noindent Ogni arco del grafo, come mostrato in figura \ref*{fig:esempio1-neo4j} rappresenta una dipendenza tra due pacchetti, 
+\noindent Ogni arco del grafo, come mostrato in figura \ref*{fig:esempio1-neo4j}, rappresenta una dipendenza tra due pacchetti, 
 ed ha bisogno delle seguenti informazioni:
 \begin{itemize}
   \item \textbf{id}: identificativo univoco dell'arco;
@@ -70,7 +70,7 @@ Il progetto contiene tre \textit{package} principali:
 \end{itemize}
 
 Ho definito anche una classe che rappresenta l'oggetto di configurazione del \textit{plugin}, 
-che contiene le informazioni necessarie per l'esecuzione del \textit{plugin} e per il salvataggio dei dati, un esempio lo si può visualizzare nello \snippet{} \ref*{lst:plugin-config}
+che contiene le informazioni necessarie per l'esecuzione del \textit{plugin} e per il salvataggio dei dati, un esempio lo si può visualizzare nel frammento di codice \ref*{lst:plugin-config}
 
 \begin{lstlisting}[
   language=Groovy, 
@@ -159,8 +159,9 @@ logFile: "../logs/out.log"
   \end{lstlisting}
 \end{itemize}
 
-Nel corso dello sviluppo, ho adottato il \textit{design pattern Singleton} per l'implementazione delle classi Java 
-dedicate alla logica, \textit{dao} e configurazione. Questo approccio assicura che esista una sola istanza di queste classi 
+Per l'implementazione delle classi Java dedicate alla logica, \textit{dao} e di configurazione ho adottato il 
+\textit{design pattern} \textit{Singleton}; 
+Questo approccio assicura che esista una sola istanza di queste classi 
 all'interno del \textit{server}, utilizzata condivisamente da tutte le altre classi.
 
 Per realizzare il \textit{Singleton} in Java, ho sfruttato una libreria sviluppata da \azienda{}, che facilita 
@@ -281,7 +282,7 @@ Le voci di menu presenti nella \textit{sidebar}, oltre alla funzionalità \texti
     vengono mostrati tutti i pacchetti che hanno una versione più recente di quella utilizzata dal progetto.\\
     \begin{figure}[!h] 
       \centering
-      \includegraphics[width=.7\columnwidth]{frontend-8.png} 
+      \includegraphics[width=1\columnwidth]{frontend-88.png} 
       \caption{Visualizzazione di tutti gli aggiornamenti disponibili.}
       \label{fig:frontend-8}
     \end{figure}  
