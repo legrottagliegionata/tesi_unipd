@@ -115,7 +115,7 @@ Il progetto del \textit{backend}, denominato \textbf{smi-dependency-store}, l'ho
 
 Per la configurazione del \textit{server}, ho previsto quattro diversi file di configurazione, uno per ogni funzionalità del \textit{server}:
 \begin{itemize}
-  \item \textbf{neo4j.yml}: contiene le informazioni per la connessione al \textit{database} Neo4j, come l'indirizzo, l'username e la password. Vedi snippet \ref*{lst:neo4j-config};
+  \item \textbf{neo4j.yml}: contiene le informazioni per la connessione al \textit{database} Neo4j, come l'indirizzo, l'username e la password, vedi il frammento di codice \ref*{lst:neo4j-config};
   \begin{lstlisting}[
     caption={Esempio di configurazione del \textit{neo4j.yml}}
     captionpos=b, 
@@ -126,7 +126,7 @@ Per la configurazione del \textit{server}, ho previsto quattro diversi file di c
   password: "neo4jlocal"
   \end{lstlisting}
   \item \textbf{token.yml} contiene le informazioni per la generazione del \textit{token}, come la chiave segreta, il \textit{clientId}, il \textit{clientSecret}, il
-    nome del \textit{server} e la durata del \textit{token}. Vedi snippet \ref*{lst:token-config}.
+    nome del \textit{server} e la durata del \textit{token}. Vedi il frammento di codice \ref*{lst:token-config}.
     Questo vuol dire che se non configurato l'\textit{LDAP}, ci sarà un solo utente che potrà accedere al \textit{server}, 
     utilizzando come \textit{username} e \textit{password} quelle configurate come \textit{clientId} e \textit{clientSecret}.\\
     Il token \textit{JWT} generato avrà una durata di 30 minuti e sarà firmato con la chiave segreta \textit{SECRET\_KEY}.
@@ -137,7 +137,7 @@ Per la configurazione del \textit{server}, ho previsto quattro diversi file di c
   issuer: "dependency_store"
   validity: 1800000
     \end{lstlisting}
-  \item \textbf{logger.yml}: contiene le informazioni per la configurazione del \textit{logger}, come il livello di log, il formato del \textit{log} e il file di output. Vedi snippet \ref*{lst:logger-config}.
+  \item \textbf{logger.yml}: contiene le informazioni per la configurazione del \textit{logger}, come il livello di log, il formato del \textit{log} e il file di output. Vedi il frammento di codice \ref*{lst:logger-config}.
     Questa configurazione viene passata ad una libreria sviluppata da \azienda{}, che è un \textit{wrapper} della libreria \textit{slf4j}, nota libreria per la gestione dei \textit{log} in Java.
     Il campo \textit{params} contiene le informazioni per la configurazione del livello di \textit{log} per ogni \textit{package} del \textit{server}, molto utile per la fase di \textit{debug}.
     \begin{lstlisting}[caption={Esempio di configurazione del \textit{logger.yml}.},captionpos=b, label={lst:logger-config}]
@@ -151,7 +151,7 @@ logFile: "../logs/out.log"
    com.smi: "debug"
   \end{lstlisting}
  \item \textbf{ldap.yml} contiene le informazioni per la configurazione dell'\textit{LDAP}, come l'indirizzo del \textit{server}, 
- il dominio ed un \textit{flag} che indica se utilizzare una connessione sicura o meno. Vedi snippet \ref*{lst:ldap-config}.
+ il dominio ed un \textit{flag} che indica se utilizzare una connessione sicura o meno. Vedi il frammento di codice \ref*{lst:ldap-config}.
   \begin{lstlisting}[caption={Esempio di configurazione dell'\textit{ldap.yml}.},captionpos=b, label={lst:ldap-config}]
   url: "ldap://10.10.99.1"
   domain: "DOMIONIO_AZIENDA"
@@ -165,7 +165,7 @@ Questo approccio assicura che esista una sola istanza di queste classi
 all'interno del \textit{server}, utilizzata condivisamente da tutte le altre classi.
 
 Per realizzare il \textit{Singleton} in Java, ho sfruttato una libreria sviluppata da \azienda{}, che facilita 
-l'implementazione di questo pattern in modo efficiente e rapido. L'\textit{snippet} \ref*{lst:esempio-singleton} mostra un esempio 
+l'implementazione di questo pattern in modo efficiente e rapido. Il frammento di codice \ref*{lst:esempio-singleton} mostra un esempio 
 di questa implementazione per la classe \textbf{PackageNodeDao}. Abbiamo optato per l'uso di una \textit{inner class} statica, 
 dotata di un campo statico \textbf{SingletonHolder}. Quest'ultimo contiene un metodo \textit{get} che accetta una \textit{lambda expression}, 
 restituendo un oggetto di tipo \textbf{PackageNodeDao}. Questa strategia garantisce la creazione dell'istanza solo all'occorrenza, 
