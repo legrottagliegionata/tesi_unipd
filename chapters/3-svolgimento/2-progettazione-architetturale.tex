@@ -31,8 +31,8 @@ ed ha bisogno delle seguenti informazioni:
   \label{fig:esempio1-neo4j}
 \end{figure}
 
-Prima di arrivare alla struttura finale, abbiamo fatto diverse prove, cercando di trovare la struttura più adatta alle nostre esigenze.
-La versione finale, come mostrato in figura \ref{fig:struttura-grafo} ha saputo soddisfare tutte le nostre esigenze.\\
+Prima di arrivare alla struttura finale, abbiamo fatto diverse prove, cercando di trovare la struttura più adatta alle nostre esigenze,
+arrivando in fine alla versione mostrata in figura \ref{fig:struttura-grafo}.\\
 Da ogni nodo possono partire tre tipi di archi, ognuno con una funzione diversa.
 Il primo tipo di arco è quello che rappresenta 
 una dipendenza diretta tra due pacchetti, quindi ad esempio se il pacchetto \textbf{A 1.0} dipende dal pacchetto \textbf{B 1.0}, 
@@ -129,7 +129,7 @@ Per la configurazione del \textit{server}, ho previsto quattro diversi file di c
     nome del \textit{server} e la durata del \textit{token}. Vedi il frammento di codice \ref*{lst:token-config}.
     Questo vuol dire che se non configurato l'\textit{LDAP}, ci sarà un solo utente che potrà accedere al \textit{server}, 
     utilizzando come \textit{username} e \textit{password} quelle configurate come \textit{clientId} e \textit{clientSecret}.\\
-    Il token \textit{JWT} generato avrà una durata di 30 minuti e sarà firmato con la chiave segreta \textit{SECRET\_KEY}.
+    Il token \textit{JWT} generato avrà una durata di 30 minuti e sarà firmato con la chiave segreta \textit{SECRET\_KEY};
     \begin{lstlisting}[caption={Esempio di configurazione del \textit{token.yml}.},captionpos=b, label={lst:token-config}]
   hmacSha512Key: "SECRET_KEY"
   clientId: "admin"
@@ -137,9 +137,9 @@ Per la configurazione del \textit{server}, ho previsto quattro diversi file di c
   issuer: "dependency_store"
   validity: 1800000
     \end{lstlisting}
-  \item \textbf{logger.yml}: contiene le informazioni per la configurazione del \textit{logger}, come il livello di log, il formato del \textit{log} e il file di output. Vedi il frammento di codice \ref*{lst:logger-config}.
+  \item \textbf{logger.yml}: contiene le informazioni per la configurazione del \textit{logger}, come il livello di \textit{log}, il formato del \textit{log} e il file di output. Vedi il frammento di codice \ref*{lst:logger-config}.
     Questa configurazione viene passata ad una libreria sviluppata da \azienda{}, che è un \textit{wrapper} della libreria \textit{slf4j}, nota libreria per la gestione dei \textit{log} in Java.
-    Il campo \textit{params} contiene le informazioni per la configurazione del livello di \textit{log} per ogni \textit{package} del \textit{server}, molto utile per la fase di \textit{debug}.
+    Il campo \textit{params} contiene le informazioni per la configurazione del livello di \textit{log} per ogni \textit{package} del \textit{server}, molto utile per la fase di \textit{debug};
     \begin{lstlisting}[caption={Esempio di configurazione del \textit{logger.yml}.},captionpos=b, label={lst:logger-config}]
 defaultLogLevel: "info"
 showDateTime: true
@@ -225,7 +225,7 @@ Ho creato quindi le cartelle \textbf{home}, \textbf{login}, \textbf{query} e \te
 
 Per la scrittura del codice ho seguito le linee guida di Angular, rilasciate nel loro sito ufficiale \cite{site:angular-style-guide}.\\
 
-Come mostrato in figura \ref*{fig:frontend-1}, l'interfaccia grafica è formata da una barra di navigazione, che contiene il nome del progetto,
+Come mostrato in figura \ref*{fig:frontend-1}, l'interfaccia grafica è formata da una barra di navigazione che contiene il nome del progetto,
 il pulsante per il \textit{logout} ed i pulsanti per cambiare la lingua dell'interfaccia grafica.\\
 Sotto la barra di navigazione è presente una \textit{sidebar}, che contiene i pulsanti per accedere alle varie funzionalità del \textit{frontend} 
 ed il contenitore principale che mostra il contenuto della funzionalità selezionata.\\
@@ -247,12 +247,12 @@ ed il contenitore principale che mostra il contenuto della funzionalità selezio
 Le voci di menu presenti nella \textit{sidebar}, oltre alla funzionalità \textit{home}, sono tre:
 \begin{itemize}
   \item \textbf{Ricerca per progetto}: Come mostrato in figura \ref*{fig:frontend-1}, in questo modulo, tramite la barra di ricerca
-   è possibile inserire il nome completo, formato da \textit{group}, \textit{name} e \textit{version}, di un pacchetto e visualizzare
-    le informazioni relative a quel pacchetto.\\
+   è possibile inserire il nome completo, formato da \textit{group}, \textit{name} e \textit{version} di un pacchetto e visualizzarne
+    le informazioni di dettaglio.\\
     Tuttavia per rendere più semplice la ricerca, ho aggiunto una funzionalità di suggerimento, che mostra la lista di pacchetti conosciuti dal 
     \textit{server}, che iniziano con la stringa inserita nella barra di ricerca, mostrandoli raggruppati per \textit{group}, come rappresentato in figura \ref*{fig:frontend-2}.\\
-    Sotto la casella di testo sono presenti tre \textit{checkbox}, che permette di scegliere se includere i pacchetti targati come \textit{dev}, 
-    se includere i pacchetti utilizzati solo durante la compilazione dei progetti e se includere tutti i pacchetti utilizzati a runtime
+    Sotto la casella di testo sono presenti tre \textit{checkbox} che permettono di scegliere se includere i pacchetti targati come \textit{dev}, 
+    se includere i pacchetti utilizzati solo durante la compilazione dei progetti e se includere tutti i pacchetti utilizzati a \textit{runtime}
     da un progetto.\\
     Una volta avviata la ricerca, viene mostrato il risultato sotto di esso, come mostrato in figura \ref*{fig:frontend-3}.\\
     Qui troviamo tre possibili visualizzazioni del risultato: a grafo, ad albero e a lista.\\
@@ -286,7 +286,7 @@ Le voci di menu presenti nella \textit{sidebar}, oltre alla funzionalità \texti
       \caption{Visualizzazione di tutti gli aggiornamenti disponibili.}
       \label{fig:frontend-8}
     \end{figure}  
-  \item \textbf{Ricerca per utilizzo}: La ricerca avviene in modo simile a quella per progetto, ma in questo caso, il risultato mostra solo una 
+  \item \textbf{Ricerca per utilizzo}: La ricerca avviene in modo simile a quella per progetto ma, in questo caso, il risultato mostra solo una 
   griglia con i pacchetti che utilizzano il pacchetto cercato.\\
   Nell'esempio in figura \ref*{fig:frontend-5}, ho cercato il pacchetto \textbf{net.synergy2:synergy2-base:23.9.1}, e il risultato mostra tutti i pacchetti che lo utilizzano.\\
   Oltre alla griglia, è presente anche un \textit{box} che mostra la \textit{query}, con la sintassi Cypher, utilizzata per la ricerca.\\

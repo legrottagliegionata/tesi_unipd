@@ -4,8 +4,8 @@ Queste attività sono svolte durante tutto il ciclo di vita del software, e sono
 \subsection*{Analisi statica}
 Per analisi statica si intende l'analisi del codice sorgente senza eseguirlo, per determinare se il codice sorgente rispetta 
 le regole di codifica, le convenzioni adottate e per calcolare alcune metriche di qualità del codice.\\
-Per l'analisi statica del codice sorgente Java ho utilizzato IntelliJ IDEA, che
-durante la scrittura del codice segnala in tempo reale eventuali errori di sintassi, errori di logica, e segnala anche
+Per l'analisi statica del codice sorgente Java ho utilizzato IntelliJ IDEA che,
+durante la scrittura del codice, segnala in tempo reale eventuali errori di sintassi, errori di logica, e segnala anche
 se il codice scritto non rispetta alcune convenzioni di codifica imposte dal \textit{team} di sviluppo.\\
 
 Per l'analisi statica del codice sorgente del progetto \textit{client} ho utilizzato WebStorm che, come IntelliJ IDEA,
@@ -70,16 +70,16 @@ Il \textit{\gls{tdd}} è una metodologia di sviluppo software che inverte l'ordi
 Invece di scrivere prima il codice e poi i \textit{test} per verificare che il codice funzioni come previsto, nel TDD si scrivono prima 
 i \textit{test} e poi il codice che deve superarli. Ecco i passaggi chiave del TDD:
 \begin{enumerate}
-  \item \textbf{Scrivere un test}: Prima di scrivere il codice funzionale, si scrive un \textit{test} per una nuova funzionalità. Questo \textit{test} fallirà inizialmente, poiché la funzionalità non è stata ancora implementata.
-  \item \textbf{Scrivere il codice minimo necessario}: Si scrive poi il codice necessario affinché il \textit{test} passi. Questo codice non deve essere perfetto; l'obiettivo è semplicemente far passare il \textit{test} 
-  \item \textit{\textbf{Refactoring}}: Una volta che il \textit{test} è superato, si procede con il \textit{refactoring} del codice. Questo passaggio consiste nel migliorare e pulire il codice senza modificarne la funzionalità, assicurandosi che i \textit{test} continuino a passare.
+  \item \textbf{Scrivere un test}: Prima di scrivere il codice funzionale, si scrive un \textit{test} per una nuova funzionalità. Questo \textit{test} fallirà inizialmente, poiché la funzionalità non è stata ancora implementata;
+  \item \textbf{Scrivere il codice minimo necessario}: Si scrive poi il codice necessario affinché il \textit{test} passi. Questo codice non deve essere perfetto; l'obiettivo è semplicemente far passare il \textit{test};
+  \item \textit{\textbf{Refactoring}}: Una volta che il \textit{test} è superato, si procede con il \textit{refactoring} del codice. Questo passaggio consiste nel migliorare e pulire il codice senza modificarne la funzionalità, assicurandosi che i \textit{test} continuino a passare;
   \item \textbf{Ripetizione}: Questo ciclo viene ripetuto per ogni nuova funzionalità o miglioramento. Si scrive un test, si fa in modo che passi, e poi si rifinisce il codice.
 \end{enumerate}
 
 I benefici del TDD includono:
 \begin{itemize}
-  \item \textbf{Migliore \textit{design} del codice}: Poiché si scrive il \textit{test} prima del codice, si è spinti a pensare più attentamente a come il codice dovrebbe funzionare e alla sua interfaccia pubblica.
-  \item \textbf{Codice più affidabile}: Poiché si scrive un \textit{test} per ogni nuova funzionalità, si ha una copertura di \textit{test} più ampia, il che aiuta a identificare e correggere gli errori più rapidamente.
+  \item \textbf{Migliore \textit{design} del codice}: Poiché si scrive il \textit{test} prima del codice, si è spinti a pensare più attentamente a come il codice dovrebbe funzionare e alla sua interfaccia pubblica;
+  \item \textbf{Codice più affidabile}: Poiché si scrive un \textit{test} per ogni nuova funzionalità, si ha una copertura di \textit{test} più ampia, il che aiuta a identificare e correggere gli errori più rapidamente;
   \item \textbf{Facilità di \textit{refactoring}}: Avendo una suite di \textit{test} che copre il codice, si può fare \textit{refactoring} con maggiore sicurezza, sapendo che i \textit{test} rileveranno eventuali regressioni introdotte.
 \end{itemize}
 
