@@ -35,7 +35,7 @@ e permette di eseguire i \textit{test} e il \textit{build} del progetto.\\
 Nx viene utilizzato principalmente per la gestione di progetti \textit{monorepo}, ovvero progetti che contengono più applicazioni,
 in modo da poter condividere le librerie tra le varie applicazioni.\\
 Nel mio caso però avevo solo un'applicazione, ma ho deciso di utilizzarlo comunque per sfruttare le semplificazioni sulla gestione 
-dei \textit{test} e del \textit{build} del progetto.\\
+dei \textit{test} e del \textit{build} della progetto.\\
 
 \subsection*{Interrogazioni su \textit{database} a grafo}
 Per la gestione delle interrogazioni su \textit{database} a grafo, ho utilizzato il linguaggio Cypher,
@@ -69,9 +69,9 @@ Le clausole \texttt{CREATE} e \texttt{MERGE} sono utilizzate per aggiungere nodi
 Queste caratteristiche rendono Cypher un linguaggio potente e flessibile per lavorare con i dati in Neo4j, 
 facilitando la rappresentazione e l'analisi di relazioni complesse in un formato di grafo.\\
 
-Con la query mostrata nel frammento di codice \ref*{fig:query-cipher} carico tutti i nodi che hanno una collegamento di tipo \textbf{D} o \textbf{R} con il nodo di partenza,
+Con la query mostrata nel frammento di codice \ref*{fig:query-cipher} carico tutti i nodi che hanno un collegamento di tipo \textbf{D} o \textbf{R} con il nodo di partenza,
 e per ogni nodo carico tutti i nodi collegati ad esso.\\
-Questa \textit{query} viene utilzzata per caricare in modo \textit{lazy} l'albero delle dipendenze, ovvero carico solo i nodi che sono direttamente collegati al nodo di partenza,
+Questa \textit{query} viene utilizzata per caricare in modo \textit{lazy} l'albero delle dipendenze, ovvero carico solo i nodi che sono direttamente collegati al nodo di partenza,
 e calcolo il numero di figli per ogni nodo.\\ In questo modo posso mostrare un \textit{badge} su ogni nodo con il numero di figli, e posso caricare i figli solo quando l'utente espande il nodo, 
 vedi la figura \ref{fig:frontend-4-bis}.\\
 
