@@ -20,19 +20,34 @@ in particolare ho realizzato:
 
 Ho realizzato anche tutte le funzionalità desiderabili (\ref{tab:obiettivi-desiderabili}), in particolare:
 \begin{itemize}
-\item Possibilita di visualizzare le dipendenze di un progetto in un formato grafico e non solo tabellare;
-\item Integrazione con il \textit{repository} remoti per controllare la presenza di nuove versioni delle dipendenze;
-\item Integrazione con il \textit{repository} remoti per controllare la presenza di vulnerabilità nelle dipendenze utilizzate;
-\item Login tramite \textit{LDAP} per accedere all'interfaccia grafica;
-\end{itemize}
+  \item \textbf{Visualizzazione grafica delle dipendenze:} Sviluppo di una funzionalità che permette di visualizzare 
+  le dipendenze di un progetto attraverso una rappresentazione grafica intuitiva. Questo supera il tradizionale formato tabellare, 
+  offrendo una comprensione più immediata delle relazioni e delle interdipendenze tra i vari componenti.
+  \item \textbf{Integrazione con \textit{repository} remoti per aggiornamenti:} Implementazione di un sistema di integrazione con \textit{repository} remoti, 
+  che consente di verificare automaticamente la disponibilità di nuove versioni per le dipendenze utilizzate. 
+  Questo assicura che il progetto rimanga aggiornato con le ultime release, migliorando la sicurezza e le prestazioni.
+  \item \textbf{Controllo di sicurezza delle dipendenze:} Introduzione di un meccanismo di verifica delle vulnerabilità 
+  nelle dipendenze tramite l'integrazione con \textit{repository} remoti. Questo strumento aumenta la sicurezza del \textit{software}, identificando e segnalando eventuali rischi associati alle versioni delle dipendenze in uso.
+  \item \textbf{Autenticazione tramite LDAP:} Realizzazione di un sistema di \textit{login} che sfrutta il protocollo LDAP 
+  per accedere all'interfaccia grafica. 
+   Questo garantisce un livello di sicurezza elevato e una gestione centralizzata delle credenziali utente.
+  \end{itemize}
 
 In fine, ho realizzato anche alcune funzionalità aggiuntive, non previste nel piano di lavoro:
 \begin{itemize}
-  \item Possibilità di esplorare l'albero delle dipendenze in modo interattivo e \textit{lazy};
-  \item Possibilità di effettuare ricerca di dipendenze tramite \textit{autocomplete}, mostrando la lista delle dipendenze che corrispondono alla ricerca raggruppate ;
-  \item Possibilità di effettuare ricerche di dipendenze tramite \textit{query} \textbf{Cypher}, inserendo la \textit{query} nel campo di ricerca e visualizzando i risultati in un formato \textit{json};
-\end{itemize}
-
+  \item \textbf{Esplorazione interattiva dell'albero delle dipendenze:} Implementazione di una funzionalità che consente 
+  agli utenti di navigare nell'albero delle dipendenze in modo interattivo e \textit{lazy}. 
+  Questo approccio migliora l'esperienza utente, permettendo di caricare e visualizzare le informazioni in maniera 
+  efficiente e solo quando necessario.
+  \item \textbf{Ricerca di dipendenze con autocomplete:} Sviluppo di un sistema di ricerca avanzato che utilizza 
+  l'autocompletamento per suggerire dipendenze in base ai termini inseriti. 
+  Questo strumento facilita la ricerca, mostrando un elenco raggruppato di dipendenze corrispondenti,
+   migliorando così l'efficienza e la rapidità di selezione.
+  \item \textbf{Ricerche avanzate con \textit{query} Cypher:} Creazione di una funzionalità che permette agli utenti di eseguire 
+  ricerche di dipendenze utilizzando \textit{query} Cypher. Inserendo la \textit{query} nel campo di ricerca, 
+  gli utenti possono ottenere risultati dettagliati in formato JSON. Questo offre un livello di personalizzazione e di 
+  dettaglio nella ricerca senza precedenti, adattandosi a esigenze di analisi più complesse.
+  \end{itemize}
 La pianificazione iniziale delle ore per lo \textit{stage} prevedeva una distribuzione equilibrata tra le diverse fasi del progetto. 
 Tuttavia, nel corso dello svolgimento, 
 si sono verificate alcune variazioni significative. In particolare, il piano originale allocava circa tre settimane per lo sviluppo 
