@@ -1,0 +1,109 @@
+TITOLO:
+Rilevazione di vulnerabilità software in librerie di terze parti
+
+Slide 3
+Buongiorno, oggi discuterò la mia tesi dal titolo: Rilevazione di vulnerabilità software in librerie di terze parti,
+risultato del mio stage presso l'azienda Sanmarco Informatica.
+Sanmarco Informatica è un’azienda italiana che si occupa di consulenza digitale e sviluppo software, specializzata nella progettazione 
+e nella realizzazione di soluzioni integrate a supporto di tutti i processi aziendali.
+L'azienda è composta da più di 600 dipendenti distribuiti in varie sedi in Italia,
+tra questi ci sono più di 200 sviluppatori che lavorano su progetti di varia natura,
+come ad esempio progetti legati a sistemi di gestione della produzione, magazzino, vendite e molti altri.
+È formata da 11 Business Unit, ognuna delle quali si occupa di un particolare settore di mercato,
+io ho lavorato per la Business Unit chiamata JPA, che si occupa dello sviluppo di un software per la gestione e automazione di processi aziendali.
+
+Slide 4
+In questo momento Sanmarco Informatica si trova in un periodo di forse espansione, di crescita e di cambiamento.
+Ci sono molti nuovi progetti in corso e tanti in software precedentemente sviluppati che necessitano di essere modularizzati e aggiornati.
+Nella visione dell'azienda, garantire la sicurezza e la qualità del software è un aspetto fondamentale per poter crescere e competere nel mercato.
+Per questo motivo ha deciso di investire in un progetto di ricerca e sviluppo che ha come obiettivo quello di creare un sistema 
+di rilevazione di vulnerabilità software in librerie di terze parti.
+Il mio progetto di stage aveva lo scopo di creare un prototipo per poter validare l'idea di Business e per poter poi continuare lo sviluppo del progetto
+assegnandolo ad un team di sviluppo. 
+
+Slide 5
+In questo progetto, a supporto di ogni attività c’era un strumento dedicato.
+In primo luogo Confluence e Jira mi hanno aiutato nelle attività di analisi e organizzazione del lavoro.
+In secondo luogo, Intellij e Webstorm sono stati gli strumenti principali per lo sviluppo di tutti i componenti software e 
+per l'integazione con Git, per il versionamento del codice sorgente.
+In fine Gradle, Jenkins e Docker sono stati utilizzati per l'automazione di tutti i processi di build, test e rilascio del software.
+Tutti questi strumenti sono largamente utilizzati in Sanmarco Informatica e sono stati scelti per garantire la compatibilità con i sistemi già esistenti.
+L'unico strumento che non era stato utilizzato prima di questo progetto è stato Neo4j, un database non relazionale orientato ai grafi.
+
+Slide 6
+Il piano di lavoro redatto dal tutor aziendale prevedeva 4 attività obbligatorie principali.
+La prima era la creazione di un plugin per Gradle in grado di raccogliere, in fase di build del software, 
+tutte le informazioni sulle librerie di terze parti utilizzate.
+La seconda era la di un servizio web in grado di ricevere le informazioni raccolte dal plugin, di salvarle in un database e
+di fornire dei servizi REST per le operazioni di ricerca e analisi.
+La terza era la creazione di un'interfaccia web per la visualizzazione delle informazioni raccolte e per l'analisi delle vulnerabilità.
+In fine il plugin doveva essere integrabile richiamabile da Jenkins, per poter automatizzare il processo di raccolta dati.
+In aggiunta a queste attività obbligatorie, mi è stato chiesto facoltativamente aggiungere una funzionalità per la verifica di nuovi aggiornamenti e vulnerabilità,
+la visualizzazione dei risultati in modo grafico e non tabellare, e la possibilità di effettuare il login sulla piattaforma tramite LDAP.
+
+Slide 7
+Per l'implementazione del plugin Gradle ho investito molto tempo nella formazione e analisi, in modo 
+da poter capire come utilizzare Gradle e come analizzare correttamente le dipendenze software.
+La soluzione prevede l'utilizzo del task standard di Gradle, chiamato dependencies, 
+che restituisce come output tutte le informazioni sull'albero delle dipendenze.
+Nel file di configurazione di gradle, dopo aver applicato il plugin al progetto,
+è possibile aggiungere una configurazione dove specificare i rigferimenti ai progetti npm, il server di destinazione e le credenziali per il 
+il salvataggio dei risultati.
+
+Slide 8
+Per l'implementazione del servizio web ho utilizzato il framework Jersey, che permette di creare facilmente dei servizi REST
+deployabili su un server Tomcat.
+Il progetto è stato strutturato in strati principali, 
+1) il web service conteneva tutte le classi per la gestione delle richieste REST;
+2) lo strato service conteneva tutte le classi per la gestione della logica di business;
+3) lo strato dao conteneva tutte le classi per la gestione della persistenza dei dati.
+in fine lo strato model conteneva tutte le classi che rappresentavano i dati.
+Anche per il backend sono stati predisposti dei file di configurazione dove poter specificare
+i riferimenti al database, la configurazione dei log, e le credenziali per l'autenticazione LDAP.
+
+Slide 9
+Per la persistenza dei dati mi è stato chiesto di utilizzare un database non relazionale orientato ai grafi.
+Le motivazioni principali erano 2:
+la prima è che con un database a grafo sarebbe stato più semplice rappresentare l'albero delle dipendenze;
+la seconda è che l'azienda voleva sfruttare questo progetto per provare e sperimentare questa nuova tecnologia.
+Il database che abbiamo scelto è Neo4j, ed utilizza il linguaggio Cypher per la scrittura delle query.
+Con Cypher è possibile creare facilmente query per le interrogazioni che con un database relazionale sarebbero molto più complesse. 
+Ad esempio la query mostrata in questa slide permette di trovare tutti i nodi che hanno una relazione di tipo DEPEDS_ON con il nodo specificato nella where.
+
+slide 10
+Per l'implementazione dell'interfaccia web ho utilizzato Angular, il framework più utilizzato per lo sviluppo di applicazioni web
+in Sanmarco Informatica.
+L'applicazione contiene oltre alla home page, 3 pagine principali:
+Nella prima pagina "Ricerca per progetto" è possibile cercare un progetto, aiutandosi con i suggerimenti forniti dal menù a
+tendina, e visualizzare tutte le informazioni sulle sue dipendenze.
+I risultati vengono rappresentati sia in modo tabellare che grafico.
+La seconda pagina "Ricerca per utilizzo" ti permette di ricercare, dato il nome di un pacchetto, tutti i progetti che lo utilizzano.
+L'ultima pagina "Query" ti permette di eseguire query personalizzate sul database e di visualizzare i risultati in
+tormato JSON.
+
+slide 11
+Dopo il completamento dell'interfaccia grafica, ho provveduto ad implementare le richieste facoltative.
+Per prima cosa ho aggiunto la possibilità di effettuare il login sulla piattaforma tramite LDAP,
+questo permetterà all'azienda di integrare il sistema con il sistema di autenticazione già esistente e ci ha 
+risparmiato di dover implementare un sistema di autenticazione da zero.
+In secondo luogo ho aggiunto la possibilità di verificare se ci sono nuovi aggiornamenti o nuove vulnerabilità per le librerie utilizzate.
+Per entrambe le richieste ho utilizzato il servizio esterno REST "sonatype" che dati i riferimenti di una libreria,
+ti restituisce tutte le informazioni sulle vulnerabilità e gli aggiornamenti disponibili. 
+
+Slide 12
+Lo stage è durato 320 ore e l'ho svolto completamente in modalità smart working.
+La ripartizione delle attività ha seguito quasi completamente il piano di lavoro redatto dal tutor aziendale,
+ad eccezione della quinta e sesta settimana, dove ho completato in anticipo le attivitò previste
+e ne ho approfittato per approfondire e testare alcune novità introdotte nelle ultime versioni di Angular, aggiungendo
+anche alcune funzionalità extra, come ad esempio la possibilità di avere l'applicativo sia in italiano che in inglese.
+Ogni settimana ho inviato al tutor interno un report con le attività svolte e i risultati ottenuti, 
+e devo riconosce che questo mi ha aiutato molto a mantenere un ritmo di lavoro costante e a non perdere di vista gli obiettivi.
+
+Slide 13
+In conclusione, il progetto è stato completato con successo e tutti gli obiettivi sono stati raggiunti.
+Il prototipo è stato presentato al tutor aziendale che ha espresso un giudizio molto positivo.
+Ora questo prototipo continuerà ad essere sviluppato da un team di sviluppo dedicato,
+per farlo diventare un prodotto completo e pronto per essere utilizzato in tutti i progetti dell'azienda.
+Oltre ad aver raggiunto tutti gli obiettivi aziendali, ho raggiunto anche tutti gli obiettivi personali che mi ero prefissato.
+Questa esperienza mi ha permesso di dedicare molto più tempo alla formazione di quanto io ne dedichi normalmente
+durante le ore di lavoro.
